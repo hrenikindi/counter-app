@@ -1,0 +1,18 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.App button:hover {
+  background-color: red;
+}
+.App button {
+  background-color: burlywood;
+  color: blueviolet;
+  border: 2px solid black;
+  border-radius: 25%;
+  font-size: 30px;
+  cursor: pointer;
+}
+* {
+  background-color: cadetblue;
+}
