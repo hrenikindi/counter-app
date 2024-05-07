@@ -1,23 +1,37 @@
+import React, { Component } from "react";
 import "./styles.css";
-import React, { useState } from "react";
 
-export default function Counter() {
-  const [count, setCount] = useState(0);
-  let handleInc = () => {
-    setCount(count + 1);
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+
+  handleInc = () => {
+    this.setState((prevState) => ({
+      count: prevState.count + 1,
+    }));
   };
 
-  const handleDec = () => {
-    if (count > 0) {
-      setCount(count - 1);
+  handleDec = () => {
+    if (this.state.count > 0) {
+      this.setState((prevState) => ({
+        count: prevState.count - 1,
+      }));
     }
   };
 
-  return (
-    <div className="App">
-      <h1>Counter:{count}</h1>
-      <button onClick={() => handleInc()}>Increase</button>
-      <button onClick={() => handleDec()}>Decrease</button>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <h1>Counter: {this.state.count}</h1>
+        <button onClick={this.handleInc}>Increase</button>
+        <button onClick={this.handleDec}>Decrease</button>
+      </div>
+    );
+  }
 }
+
+export default Counter;
